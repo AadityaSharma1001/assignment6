@@ -1,40 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+
+# Assignment 3: Next.js Summarizer Dashboard
+
+This project is a Next.js web application that allows users to generate, save, and manage text summaries. It features Google authentication, MongoDB integration, and email functionality for sharing summaries.
+
+## Features
+
+- **User Authentication:** Sign in with Google using NextAuth.js.
+- **Summarization:** Generate summaries using an AI API.
+- **Dashboard:** View, save, and delete your summaries.
+- **Email:** Send summaries via email.
+- **MongoDB Integration:** All summaries are stored in MongoDB.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Nodemailer](https://nodemailer.com/)
+- [Tailwind CSS](https://tailwindcss.com/) (via PostCSS)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js (v18 or higher recommended)
+- npm (v9 or higher)
+
+### Installation
+
+1. **Clone the repository:**
+	 ```powershell
+	 git clone <your-repo-url>
+	 cd assignment3
+	 ```
+
+2. **Install dependencies:**
+	 ```powershell
+	 npm install
+	 ```
+
+3. **Configure environment variables:**
+	 - Copy `.env.local` and update the following values as needed:
+		 - `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (Google OAuth credentials)
+		 - `MONGODB_URI` (MongoDB connection string)
+		 - `NEXTAUTH_SECRET` (any random string)
+		 - `EMAIL_USER` and `EMAIL_PASS` (for sending emails)
+		 - `AI_API_KEY` (for the summarization API)
+
+### Running the App
+
+#### Development
+
+```powershell
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+#### Production
+
+```powershell
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+src/
+	lib/
+		mongodb.js         # MongoDB connection helper
+	models/
+		Summary.js         # Mongoose model for summaries
+	pages/
+		_app.js            # Next.js custom App
+		_document.js       # Next.js custom Document
+		dashboard.js       # User dashboard
+		index.js           # Home page
+		api/
+			deleteSummary.js # API route to delete summaries
+			saveSummary.js   # API route to save summaries
+			sendMail.js      # API route to send emails
+			summaries.js     # API route to fetch summaries
+			summarize.js     # API route to generate summaries
+			auth/
+				[...nextauth].js # NextAuth.js configuration
+	styles/
+		globals.css        # Global styles (Tailwind CSS)
+public/                # Static assets
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## License
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+This project is for educational purposes.
