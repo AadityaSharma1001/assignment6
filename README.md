@@ -32,7 +32,7 @@ This project is a Next.js web application that allows users to generate, save, a
 
 1. **Clone the repository:**
 	 ```powershell
-	 git clone <your-repo-url>
+	 git clone https://github.com/AadityaSharma1001/assignment6
 	 cd assignment3
 	 ```
 
