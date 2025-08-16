@@ -1,5 +1,41 @@
+## Approach & Process
 
-# Assignment 3: Next.js Summarizer Dashboard
+### 1. Planning & Requirements
+- Identified the need for a summarization dashboard with user authentication, summary management, and sharing features.
+- Chose Next.js for its full-stack capabilities and easy API route integration.
+- Decided on MongoDB for flexible, scalable storage of user summaries.
+
+### 2. Authentication
+- Implemented Google OAuth using NextAuth.js for secure and familiar user sign-in.
+- Protected dashboard and summary routes to ensure only authenticated users can access their data.
+
+### 3. Summarization Logic
+- Integrated an external AI API (using `AI_API_KEY` in `.env.local`) to generate summaries from user input.
+- Created an API route (`/api/summarize`) to handle requests and responses between the frontend and the AI service.
+
+### 4. Data Management
+- Used Mongoose models to define and interact with the `Summary` schema in MongoDB.
+- Built API routes for saving, fetching, and deleting summaries, ensuring all actions are user-specific.
+
+### 5. Email Integration
+- Used Nodemailer to allow users to send summaries to any email address.
+- Secured email credentials via environment variables.
+
+### 6. UI/UX
+- Built a clean, responsive dashboard using React and Tailwind CSS.
+- Provided clear feedback for actions (saving, deleting, sending emails).
+
+### 7. Security & Environment
+- All sensitive keys and credentials are stored in `.env.local` and never committed to version control.
+- Used Next.js API routes to keep backend logic secure and separated from the frontend.
+
+### 8. Testing & Deployment
+- Tested all flows locally using the development server.
+- Ensured the app works with real Google, MongoDB, and email credentials.
+
+---
+
+# Assignment: Next.js Summarizer Dashboard
 
 This project is a Next.js web application that allows users to generate, save, and manage text summaries. It features Google authentication, MongoDB integration, and email functionality for sharing summaries.
 
